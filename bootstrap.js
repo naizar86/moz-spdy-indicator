@@ -7,16 +7,9 @@ function startup(data, reason) {
 }
 
 function shutdown(data, reason) {
-  if (reason == APP_SHUTDOWN) return;
+  if (reason == APP_STARTUP) return;
 
   Cu.import("chrome://spdyindicator/content/indicator.jsm");
   SPDYManager.shutdown();
-  Cu.unload("chrome://spdyindicator/content/indicator.jsm");
-}
-
-function install(data, reason) {
-  // o hai there new friend! :D
-}
-function uninstall(data, reason) {
-  // y u do this to me :(
+  Cu.import("chrome://spdyindicator/content/indicator.jsm");
 }
